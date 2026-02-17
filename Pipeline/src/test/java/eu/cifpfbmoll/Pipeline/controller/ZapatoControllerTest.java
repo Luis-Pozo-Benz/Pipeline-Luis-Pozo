@@ -27,12 +27,12 @@ class ZapatoControllerTest {
         // Arrange
         when(zapatoService.findAll()).thenReturn(List.of(new Zapato()));
 
-    //     // Act - LLAMA AL MÉTODO DEL CONTROLLER
-    //     zapatoController.getAllZapatos();
+        // Act - LLAMA AL MÉTODO DEL CONTROLLER
+        zapatoController.getAllZapatos();
 
-    //     // Assert
-    //     verify(zapatoService).findAll();
-    // }
+        // Assert
+        verify(zapatoService).findAll();
+    }
 
     // @Test
     // void getByIdExists() {

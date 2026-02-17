@@ -1,14 +1,14 @@
-package eu.cifpfbmoll.Pipeline.fixtures;
+// package eu.cifpfbmoll.Pipeline.fixtures;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.CommandLineRunner;
+// import org.springframework.stereotype.Component;
 
-import eu.cifpfbmoll.Pipeline.model.Persona;
-import eu.cifpfbmoll.Pipeline.repository.PersonaRepository;
+// import eu.cifpfbmoll.Pipeline.model.Persona;
+// import eu.cifpfbmoll.Pipeline.repository.PersonaRepository;
 
-@Component
-public class PersonaFixtures implements CommandLineRunner {
+// @Component
+// public class PersonaFixtures implements CommandLineRunner {
     
     // @Autowired private PersonaRepository personaRepository;
 
@@ -29,5 +29,5 @@ public class PersonaFixtures implements CommandLineRunner {
     //     personaRepository.save(new Persona("David Rodríguez", 42.0));
     //     personaRepository.save(new Persona("Elena Torres", 38.5));
     // }
-}
+// }
 
