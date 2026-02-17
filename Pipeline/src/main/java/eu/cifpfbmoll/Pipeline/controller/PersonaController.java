@@ -39,8 +39,8 @@ public class PersonaController {
     }
 
     @PostMapping
-    public ResponseEntity<Persona> createPersona(@RequestBody Persona zapato) {
-        final Persona saved = personaService.save(zapato);
+    public ResponseEntity<Persona> createPersona(@RequestBody Persona persona) {
+        final Persona saved = personaService.save(persona);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 

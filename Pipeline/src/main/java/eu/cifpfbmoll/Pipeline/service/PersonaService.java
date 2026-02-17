@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class PersonaService {
 
-    @Autowired
+    
     private PersonaRepository personaRepository;
 
     public Persona findById(Long id) {

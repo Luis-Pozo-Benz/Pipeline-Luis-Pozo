@@ -2,6 +2,8 @@ package eu.cifpfbmoll.Pipeline.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,10 +24,11 @@ public class Zapato {
     @Column(name = "marca")
     private String marca;
 
-    @Column(name = "talla")
+    @Column(name = "precio")
     private double precio;
 
     @ManyToMany(mappedBy = "zapatos")
+    @JsonIgnore
     private Set<Persona> personas;
 
     public Zapato() {}

@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class ZapatoService {
 
-    @Autowired
+    
     private ZapatoRepository zapatoRepository;
 
     public Zapato findById(Long id) {
