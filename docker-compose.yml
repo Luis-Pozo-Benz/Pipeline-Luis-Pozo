@@ -14,7 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    build: .
+    build: ./Pipeline
     container_name: pipeline_app
     ports:
       - "8080:8080"
