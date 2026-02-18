@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -27,16 +27,27 @@ jobs:
     - name: Construir JAR
       run: cd Pipeline && mvn clean package -DskipTests
 
-    - name: Construir imágenes Docker
-      run: docker compose -f docker-compose.yml build
+  docker:
+    runs-on: ubuntu-latest
+    needs: test  # Solo ejecuta si tests pasan
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
 
-    - name: Tests de aceptación
+    - name: Construir y probar Docker
       run: |
         cd Pipeline
         docker compose up -d postgres
-        sleep 30
-        docker compose up --build app
-        sleep 15
-        curl -f http://localhost:8080/personas || exit 1
-        curl -f http://localhost:8080/zapatos || exit 1
-        docker compose down
+        sleep 20
+        docker compose build --no-cache app
+        docker compose up app
+        # Esperar app
+        until curl -f http://localhost:8080/actuator/health || curl -f http://localhost:8080/personas; do
+          echo "Esperando app...";
+          sleep 2;
+        done
+        # Tests finales
+        curl -f http://localhost:8080/personas
+        curl -f http://localhost:8080/zapatos
+        echo "¡Pipeline COMPLETA!"
