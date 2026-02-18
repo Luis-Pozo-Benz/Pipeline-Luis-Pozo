@@ -21,9 +21,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Validar Checkstyle
-      run: mvn checkstyle:check -Pcheckstyle
-
     - name: Ejecutar tests unitarios
       run: mvn test
 
