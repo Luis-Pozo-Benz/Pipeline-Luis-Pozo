@@ -22,21 +22,21 @@ jobs:
         cache: maven
 
     - name: Ejecutar tests unitarios
-      run: mvn test
+      run: cd Pipeline && mvn test
 
     - name: Construir JAR
-      run: mvn clean package -DskipTests
+      run: cd Pipeline && mvn clean package -DskipTests
 
     - name: Construir imágenes Docker
-      run: |
-        docker-compose build
+      run: docker compose -f Pipeline/docker-compose.yml build
 
     - name: Tests de aceptación
       run: |
-        docker-compose up -d postgres
-        sleep 20
-        docker-compose up --build app
-        sleep 10
+        cd Pipeline
+        docker compose up -d postgres
+        sleep 30
+        docker compose up --build app
+        sleep 15
         curl -f http://localhost:8080/personas || exit 1
         curl -f http://localhost:8080/zapatos || exit 1
-        docker-compose down
+        docker compose down
