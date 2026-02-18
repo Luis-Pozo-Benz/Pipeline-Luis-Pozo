@@ -28,7 +28,7 @@ jobs:
       run: cd Pipeline && mvn clean package -DskipTests
 
     - name: Construir imágenes Docker
-      run: docker compose -f Pipeline/docker-compose.yml build
+      run: docker compose -f docker-compose.yml build
 
     - name: Tests de aceptación
       run: |
