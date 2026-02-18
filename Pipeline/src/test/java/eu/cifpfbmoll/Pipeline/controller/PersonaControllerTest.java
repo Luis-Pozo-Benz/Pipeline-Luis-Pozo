@@ -33,48 +33,48 @@ class PersonaControllerTest {
         verify(personaService).findAll();
     }
 
-    // @Test
-    // void getByIdExists() {
-    //     // Arrange
-    //     Persona persona = new Persona();
-    //     persona.setNombre("Ana");
-    //     when(personaService.findById(1L)).thenReturn(persona); // ← Persona (NO Optional)
+    @Test
+    void getByIdExists() {
+        // Arrange
+        Persona persona = new Persona();
+        persona.setNombre("Ana");
+        when(personaService.findById(1L)).thenReturn(persona); // ← Persona (NO Optional)
 
-    //     // Act
-    //     personaController.getById(1L);
+        // Act
+        personaController.getById(1L);
 
-    //     // Assert
-    //     verify(personaService).findById(1L);
-    // }
+        // Assert
+        verify(personaService).findById(1L);
+    }
 
-    // @Test
-    // void getByIdNotFound() {
-    //     when(personaService.findById(999L)).thenReturn(null); // ← null
+    @Test
+    void getByIdNotFound() {
+        when(personaService.findById(999L)).thenReturn(null); // ← null
 
-    //     personaController.getById(999L);
+        personaController.getById(999L);
 
-    //     verify(personaService).findById(999L);
-    // }
+        verify(personaService).findById(999L);
+    }
 
-    // @Test
-    // void createPersona() {
-    //     // Arrange
-    //     Persona persona = new Persona();
-    //     when(personaService.save(any())).thenReturn(persona);
+    @Test
+    void createPersona() {
+        // Arrange
+        Persona persona = new Persona();
+        when(personaService.save(any())).thenReturn(persona);
 
-    //     // Act - LLAMA AL MÉTODO
-    //     personaController.createPersona(persona);
+        // Act - LLAMA AL MÉTODO
+        personaController.createPersona(persona);
 
-    //     // Assert
-    //     verify(personaService).save(persona);
-    // }
+        // Assert
+        verify(personaService).save(persona);
+    }
 
-    // @Test
-    // void deletePersona() {
-    //     // Act - LLAMA AL MÉTODO
-    //     personaController.deletePersona(1L);
+    @Test
+    void deletePersona() {
+        // Act - LLAMA AL MÉTODO
+        personaController.deletePersona(1L);
 
-    //     // Assert
-    //     verify(personaService).deleteById(1L);
-    // }
+        // Assert
+        verify(personaService).deleteById(1L);
+    }
 }

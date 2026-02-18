@@ -34,48 +34,48 @@ class ZapatoControllerTest {
         verify(zapatoService).findAll();
     }
 
-    // @Test
-    // void getByIdExists() {
-    //     // Arrange
-    //     Zapato zapato = new Zapato();
-    //     zapato.setMarca("Nike");
-    //     when(zapatoService.findById(1L)).thenReturn(zapato); // ← Persona (NO Optional)
+    @Test
+    void getByIdExists() {
+        // Arrange
+        Zapato zapato = new Zapato();
+        zapato.setMarca("Nike");
+        when(zapatoService.findById(1L)).thenReturn(zapato); // ← Persona (NO Optional)
 
-    //     // Act
-    //     zapatoController.getById(1L);
+        // Act
+        zapatoController.getById(1L);
 
-    //     // Assert
-    //     verify(zapatoService).findById(1L);
-    // }
+        // Assert
+        verify(zapatoService).findById(1L);
+    }
 
-    // @Test
-    // void getByIdNotFound() {
-    //     when(zapatoService.findById(999L)).thenReturn(null); // ← null
+    @Test
+    void getByIdNotFound() {
+        when(zapatoService.findById(999L)).thenReturn(null); // ← null
 
-    //     zapatoController.getById(999L);
+        zapatoController.getById(999L);
 
-    //     verify(zapatoService).findById(999L);
-    // }
+        verify(zapatoService).findById(999L);
+    }
 
-    // @Test
-    // void createZapato() {
-    //     // Arrange
-    //     Zapato zapato = new Zapato();
-    //     when(zapatoService.save(any())).thenReturn(zapato);
+    @Test
+    void createZapato() {
+        // Arrange
+        Zapato zapato = new Zapato();
+        when(zapatoService.save(any())).thenReturn(zapato);
 
-    //     // Act - LLAMA AL MÉTODO
-    //     zapatoController.createZapato(zapato);
+        // Act - LLAMA AL MÉTODO
+        zapatoController.createZapato(zapato);
 
-    //     // Assert
-    //     verify(zapatoService).save(zapato);
-    // }
+        // Assert
+        verify(zapatoService).save(zapato);
+    }
 
-    // @Test
-    // void deleteZapato() {
-    //     // Act - LLAMA AL MÉTODO
-    //     zapatoController.deleteZapato(1L);
+    @Test
+    void deleteZapato() {
+        // Act - LLAMA AL MÉTODO
+        zapatoController.deleteZapato(1L);
 
-    //     // Assert
-    //     verify(zapatoService).deleteById(1L);
-    // }
+        // Assert
+        verify(zapatoService).deleteById(1L);
+    }
 }
