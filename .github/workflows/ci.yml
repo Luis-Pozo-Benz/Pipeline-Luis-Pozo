@@ -16,6 +16,8 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+    - name: Checkstyle
+      run: cd Pipeline && mvn checkstyle:check
     - name: Tests unitarios
       run: cd Pipeline && mvn test
 
